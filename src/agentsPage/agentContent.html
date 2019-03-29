@@ -1,0 +1,29 @@
+<li ng-show="filterName === 'All'||filterName === contentValue.category" ng-class="{'status-idle': contentValue.status ==='idle', 'status-building': contentValue.status ==='building'}">
+    <div class="item-icon"></div>
+    <div class="agent-content-item">
+        <div class="main-wrap">
+            <span>{{contentValue.url}}</span>
+            <span>{{contentValue.status}}</span>
+            <span>{{contentValue.ip}}</span>
+            <span>{{contentValue.path}}</span>
+        </div>
+        <div class="sub-wrap">
+            <i class="fas fa-plus"></i>
+            <button ng-click="open()">Specify Resources</button>
+            <span>Resources:</span>
+            <span class="item" ng-repeat="resource in contentValue.resources track by $index">
+                            {{resource}}<i class="far fa-times-circle" ng-click="deleteResource($index)"></i>
+            </span>
+        </div>
+    </div>
+    <div ng-show="isOpenDialog" class="add-dialog">
+        <h3>(Separate multiple resources name with commas)</h3>
+        <div><input type="text" ng-model="resource" ng-keypress="handlePressEnter($event)"/></div>
+        <div><button ng-click="addResources()">Add resources</button><button ng-click="close()">Close</button></div>
+        <div class="pointer">
+            <div class="empty"></div>
+        </div>
+
+    </div>
+    <div ng-show="contentValue.status ==='idle'" class="deny"><i class="fas fa-ban"></i><a>Deny</a></div>
+</li>

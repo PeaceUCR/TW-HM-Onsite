@@ -1,0 +1,14 @@
+<header class="global-header">
+    <section class="top-bar">
+        <span>{{GHCtrl.data.signInPrefix}}</span>
+        <a class="signin" >{{GHCtrl.data.member}}</a>
+        <span class="arrow"></span>
+        <a>{{GHCtrl.data.signOut}}</a>
+    </section>
+    <section class="top-nav">
+        <h1 class="title">{{GHCtrl.data.title}}</h1>
+        <ul class="nav-list">
+             <li ng-repeat="route in GHCtrl.routes" ng-class="{ 'selected': GHCtrl.isSelelcted(route.name)}" ng-click="GHCtrl.goToState(route.name)">{{route.displayName}}</li>
+        </ul>
+    </section>
+</header>

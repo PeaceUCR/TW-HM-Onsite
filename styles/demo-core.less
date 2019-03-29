@@ -1,0 +1,66 @@
+*{
+  box-sizing: border-box;
+}
+
+body,
+html {
+  height: 100%;
+  font-size: @demo-default-font-size;
+  font-family: @demo-default-font-family;
+  color: @demo-default-font-color;
+  font-weight: normal;
+  margin: 0;
+  padding: 0;
+  background-color: @demo-default-background-color;
+}
+
+body,
+input,
+select,
+textarea,
+body * {
+  box-sizing: border-box;
+  font-weight: normal;
+}
+
+body::after,
+body::before,
+input::after,
+input::before,
+select::after,
+select::before,
+textarea::after,
+textarea::before,
+body *::after,
+body *::before {
+  box-sizing: border-box;
+}
+
+button:focus{
+  outline: none;
+}
+
+main{
+  position: relative;
+  padding: 1rem 2rem;
+  height: 100%;
+  .main-container{
+    border: 3px solid black;
+  }
+}
+
+ul{
+  list-style-type:none;
+  padding: 0;
+  margin: 0;
+}
+
+h1,h2, h3{
+  margin: 0;
+}
+
+footer{
+  font-size: 1.1rem;
+  padding: 1rem 0 0 0.5rem;
+}
+

@@ -1,0 +1,96 @@
+header.global-header{
+    .top-bar{
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+      font-size: 1.4rem;
+      &>*:not(.arrow){
+        padding-right: 0.8rem;
+      }
+      .arrow{
+        -webkit-clip-path: polygon(0 35%, 19% 35%, 19% 0, 100% 50%, 19% 100%, 19% 67%, 0 67%);
+        clip-path: polygon(0 35%, 19% 35%, 19% 0, 100% 50%, 19% 100%, 19% 67%, 0 67%);
+        background: black;
+        padding-right: 2rem;
+      }
+      .signin{
+        padding-right: 2rem;
+      }
+      a{
+        color: @demo-default-font-color;
+        text-decoration: underline;
+        cursor: pointer;
+      }
+    }
+
+    .top-nav{
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: flex-end;
+        .title{
+          font-size: 4rem;
+          padding-bottom: 1rem;
+        }
+
+        ul{
+          display: flex;
+          flex-direction: row;
+          flex-wrap: wrap;
+          li{
+            position: relative;
+            margin: 0 0.1rem;
+            padding: 0.5rem 1.2rem;
+            font-size: 1.6rem;
+            border: 3px solid black;
+            border-top-left-radius: 12px 12px;
+            border-top-right-radius: 12px 12px;
+            border-bottom: none;
+            text-shadow: 0px 0px 2px grey;
+            cursor: pointer;
+            &.selected{
+              color: @demo-dark-font-color;
+              background-color: @demo-dark-background-color;
+              text-shadow: none;
+            }
+
+            &.selected:before{
+              content: "";
+              position: absolute;
+              left: 0;
+              bottom: -3px;
+              height: 3px;
+              width: 100%;
+              border-bottom: 3px solid @demo-dark-background-color;
+              z-index: 1;
+            }
+          }
+        }
+    }
+
+}
+
+
+@media screen and (max-width: 700px){
+  header.global-header {
+    .top-nav{
+      ul{
+        li{
+          margin: 0;
+          min-width: 50%;
+        }
+      }
+    }
+  }
+}
+
+
+@media screen and (-ms-high-contrast: active), (-ms-high-contrast: none){
+  .top-bar{
+    .arrow{
+      display: none;
+    }
+  }
+}

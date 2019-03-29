@@ -1,0 +1,48 @@
+<section class="agents-container">
+    <section class="agents-filter-container">
+        <h2 class="agents-filter-text">Agents</h2>
+        <ul>
+            <li ng-class="{'selected': item ===ACtrl.selectedFilter}" ng-click="ACtrl.select(item)" ng-repeat="item in ACtrl.filters  track by $index">{{item}}</li>
+        </ul>
+    </section>
+    <section class="agents-main-container">
+
+        <section class="agents-content-container">
+            <section class="agent-add-button-container">
+                <button ng-click="ACtrl.openDialog()">Add Agent</button>
+                <section ng-show="ACtrl.isOpenDialog" class="agent-add-dialog">
+                    <div class="input-group">
+                        <label >Name</label>
+                        <input type="text" name="agentName" ng-model="agentName"/>
+                        <label >Ip</label>
+                        <input type="text" name="agentIp" ng-model="agentIp"/>
+                    </div>
+                    <div>
+                        <button ng-click="ACtrl.addAgent()">Add Agent</button>
+                        <button ng-click="ACtrl.closeDialog()">Close</button>
+                    </div>
+                    <div class="pointer">
+                        <div class="empty"></div>
+                    </div>
+                </section>
+            </section>
+            <ul>
+                <agent-content ng-repeat="item in ACtrl.agentsDataService.agentsData track by $index" content-value="item" content-index="$index"></agent-content>
+            </ul>
+        </section>
+        <section class="agents-right-panel">
+            <section class="agents-summary">
+                <section class="agents-summary-title">Summary</section>
+                <section class="agents-summary-item" ng-repeat="item in ACtrl.summaryKeys track by $index" >
+                    <span>{{item}}</span><span>{{ACtrl.summary.get(item)}}</span>
+                </section>
+            </section>
+            <section class="agents-history">
+                <section class="agents-history-title">History</section>
+                <section class="agents-history-item" ng-repeat="item in ACtrl.historyList track by $index" >
+                    <div>{{item}}</div>
+                </section>
+            </section>
+        </section>
+    </section>
+</section>
